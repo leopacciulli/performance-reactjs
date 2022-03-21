@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react"
+import { FormEvent, useCallback, useState } from "react"
 import SearchResults from "./components/SearchResults";
 
 const Home = () => {
@@ -18,6 +18,10 @@ const Home = () => {
     setResults(data)
   }
 
+  const handleAddToWishlist = useCallback(async (id: number) => { 
+    console.log(id)
+  }, [])
+
   return (
     <div>
       <h1>Search</h1>
@@ -34,7 +38,10 @@ const Home = () => {
         </button>
       </form>
 
-      <SearchResults results={results} />
+      <SearchResults
+        results={results}
+        onAddToWishlist={handleAddToWishlist}
+      />
     </div>
   )
 }
@@ -60,4 +67,9 @@ export default Home
  * useMemo
  * 1 - Calculos pesados
  * 2 - Igualdade referencial (quando a gente repassa aquela informação a um componente filho)
+ */
+
+/**
+ * useCallback
+ * 1 - Usar para evitar uma recriação de um componente filho, quando uma função é passada do pai a esse componente filho - (conceito de prop drillings)
  */
