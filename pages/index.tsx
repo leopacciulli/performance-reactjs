@@ -55,3 +55,9 @@ export default Home
  * 3 - Re-renders with same props
  * 4 - Medium to big size
  */
+
+/**
+ * useMemo
+ * 1 - Calculos pesados
+ * 2 - Igualdade referencial (quando a gente repassa aquela informação a um componente filho)
+ */
